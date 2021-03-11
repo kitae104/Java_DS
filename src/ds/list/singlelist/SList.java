@@ -2,6 +2,8 @@ package ds.list.singlelist;
 
 import java.util.NoSuchElementException;
 
+import ds.list.Node;
+
 public class SList<E> {
 	protected Node<E> head;		// 연결 리스트의 첫 노드 
 	private int size;
