@@ -1,6 +1,6 @@
 package ds.tree.binary;
 
-public class Node<Key> {
+public class Node<Key extends Comparable<Key>> {
 	private Key item;
 	private Node<Key> left;
 	private Node<Key> right;
