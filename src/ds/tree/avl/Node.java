@@ -5,7 +5,7 @@ public class Node<Key extends Comparable<Key>, Value> {
 	private Value value;   	
 	private int height;   	
 	private Node left, right;  
-	
+
 	public Node(Key key, Value value, int height) {
 		super();
 		this.key = key;
