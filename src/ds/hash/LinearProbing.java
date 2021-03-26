@@ -45,7 +45,7 @@ public class LinearProbing<K, V> {
 	public V get(K key) {
 		int initialPos = hash(key);
 		int i = initialPos, j = 1;
-		while(a[i] == null) {			// a[i]가 empty가 아니면
+		while(a[i] != null) {			// a[i]가 empty가 아니면
 			if(a[i].equals(key)) {
 				return d[i];			// 탐색 성공 
 			}

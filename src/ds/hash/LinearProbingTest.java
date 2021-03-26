@@ -23,5 +23,4 @@ public class LinearProbingTest {
 		}
 		System.out.println();
 	}
-
 }
