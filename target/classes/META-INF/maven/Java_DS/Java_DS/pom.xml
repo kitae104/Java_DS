@@ -5,13 +5,13 @@
 	<groupId>Java_DS</groupId>
 	<artifactId>Java_DS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+  
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.github.vlsi.mxgraph/jgraphx -->
 		<dependency>
 			<groupId>com.github.vlsi.mxgraph</groupId>
 			<artifactId>jgraphx</artifactId>
-			<version>4.2.2</version>
+			<version>4.2.2</version> 
 		</dependency>
 	</dependencies>
 
