@@ -2,8 +2,6 @@ package ds.list.array;
 
 import java.util.NoSuchElementException;
 
-import ds.list.doublelist.DNode;
-
 // 리스트를 배열로 구현한 클래스 
 public class ArrList<E> {
 	private E a[];		// 리스트 항목을 저장할 배열 
