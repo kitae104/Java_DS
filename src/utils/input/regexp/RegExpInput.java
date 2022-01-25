@@ -10,9 +10,17 @@ public class RegExpInput
 	{
 		String regExp = "\\s*[a-zA-Z]+";  // 정규식 
 		String regExp2 = "\\s";  // 공백 
-		String strTest = "{([[]])}";
-		String strTest2 = "A * ( B + C / D )";
-		StringTokenizer st = new StringTokenizer(strTest2, "{}()[]+*/-}", true); // 공백 고려
+		String strTest = "{a(b[c[d]e]f)g}";
+		String strTest2 = "36 * ( 2 + 56 / 7)";
+		
+//		String[] strArr = strTest.split(regExp);
+//		for (String str : strArr)
+//		{
+//			System.out.println(str);
+//		}
+		
+		
+		StringTokenizer st = new StringTokenizer(strTest2, "+-*/(){}[]",true); // 공백 고려
 		
 		int i = 1;
 		while(st.hasMoreTokens())
