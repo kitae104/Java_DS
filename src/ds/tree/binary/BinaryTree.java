@@ -3,15 +3,21 @@ package ds.tree.binary;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 바이너리 트리 클래스 
+ * @author 김기태
+ *
+ * @param <Key>
+ */
 public class BinaryTree<Key extends Comparable<Key>> {
 
-	private Node<Key> root;
+	private Node<Key> root;		// 루트 노드 
 
 	/**
 	 * 트리 생성자
 	 */
 	public BinaryTree() {
-		root = null;
+		root = null;			// 초기에 null로 설정 
 	}
 
 	/**

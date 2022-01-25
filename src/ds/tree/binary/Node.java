@@ -1,15 +1,15 @@
 package ds.tree.binary;
 
 public class Node<Key extends Comparable<Key>> {
-	private Key item;
-	private Node<Key> left;
-	private Node<Key> right;
+	private Key item;			// 아이템
+	private Node<Key> left;		// 왼쪽 링크 
+	private Node<Key> right;	// 오른쪽 링크 
 	
 	/**
-	 * 생성자 
-	 * @param item
-	 * @param left
-	 * @param right
+	 * 생성자 - 각 인스턴스 변수 초기화 
+	 * @param item 아이템
+	 * @param left 왼쪽링크 
+	 * @param right 오른쪽 링크 
 	 */
 	public Node(Key item, Node<Key> left, Node<Key> right) {	
 		super();
@@ -40,6 +40,5 @@ public class Node<Key extends Comparable<Key>> {
 
 	public void setRight(Node<Key> right) {
 		this.right = right;
-	}
-	
+	}	
 }
