@@ -60,32 +60,32 @@ public class BinaryTree<Key extends Comparable<Key>> {
 	/**
 	 * <pre>
 	 * 1. 개요 : 전위 순회
-	 * 2. 처리내용 : 
+	 * 2. 처리내용 : 루트 - L - R 순으로 방문 
 	 * </pre>
 	 * @Method Name : preOrder
 	 * @param node
 	 */
 	public void preOrder(Node<Key> node) {
 		if(node != null) {
-			System.out.print(node.getItem() + " ");
-			preOrder(node.getLeft());
-			preOrder(node.getRight());
+			System.out.print(node.getItem() + " ");	// 노드 n 방문 
+			preOrder(node.getLeft());				// n의 왼쪽 서브 트리를 순회 
+			preOrder(node.getRight());				// n의 오른쪽 서브 트리를 순회
 		}
 	}
 	
 	/**
 	 * <pre>
 	 * 1. 개요 : 중위 순회
-	 * 2. 처리내용 : 
+	 * 2. 처리내용 : L - 루트 - R
 	 * </pre>
 	 * @Method Name : inOrder
 	 * @param node
 	 */
 	public void inOrder(Node<Key> node) {
 		if(node != null) {
-			inOrder(node.getLeft());
-			System.out.print(node.getItem() + " ");
-			inOrder(node.getRight());
+			inOrder(node.getLeft());				// n의 왼쪽 서브 트리를 순회 
+			System.out.print(node.getItem() + " ");	// 노드 n 방문 
+			inOrder(node.getRight());				// n의 오른쪽 서브 트리를 순회
 		}
 	}
 	
@@ -99,33 +99,34 @@ public class BinaryTree<Key extends Comparable<Key>> {
 	 */
 	public void postOrder(Node<Key> node) {
 		if(node != null) {
-			postOrder(node.getLeft());
-			postOrder(node.getRight());
-			System.out.print(node.getItem() + " ");
+			postOrder(node.getLeft());				// n의 왼쪽 서브 트리를 순회 
+			postOrder(node.getRight());				// n의 오른쪽 서브 트리를 순회
+			System.out.print(node.getItem() + " ");	// 노드 n 방문 
 		}
 	}
 	
 	/**
 	 * <pre>
 	 * 1. 개요 : 레벨 순회 
-	 * 2. 처리내용 : 
+	 * 2. 처리내용 : 레벨 순회는 루트노드가 있는 최상위 레벨부터 시작하여 각 레벨마다
+	 *               좌에서 우로 노드들을 방문한다. 
 	 * </pre>
 	 * @Method Name : levelOrder
 	 * @param root
 	 */
 	public void levelOrder(Node<Key> root) {
-		Queue<Node<Key>> q = new LinkedList<Node<Key>>();
-		Node<Key> t;
-		q.add(root);	// 루트 노드 큐에 삽입
+		Queue<Node<Key>> q = new LinkedList<Node<Key>>();	// 큐 자료구조 이용 
+		Node<Key> t;										// 노드 선언 
+		q.add(root);										// 루트 노드 큐에 삽입
 		
-		while(!q.isEmpty()) {
-			t = q.remove();		//큐에서 가장 앞에 있는 노드 제거
-			System.out.print(t.getItem() + " ");	// 제거된 노드 출력(방문)
-			if(t.getLeft() != null) {
-				q.add(t.getLeft());					// 큐에 왼쪽 자식 삽입
+		while(!q.isEmpty()) {								// 큐가 비어있지 않은 경우라면 
+			t = q.remove();									// 큐에서 가장 앞에 있는 노드 제거
+			System.out.print(t.getItem() + " ");			// 제거된 노드 출력(방문)
+			if(t.getLeft() != null) {						// 방문 노드의 왼쪽이 존재하는 경우라면 
+				q.add(t.getLeft());							// 큐에 왼쪽 자식 삽입
 			}
-			if(t.getRight() != null) {
-				q.add(t.getRight());				// 큐에 오른쪽 자식 삽입 
+			if(t.getRight() != null) {						// 방문 노드의 오른쪽이 존재하는 경우라면 
+				q.add(t.getRight());						// 큐에 오른쪽 자식 삽입 
 			}
 		}
 	}
@@ -133,16 +134,17 @@ public class BinaryTree<Key extends Comparable<Key>> {
 	/**
 	 * <pre>
 	 * 1. 개요 : node를 루트로하는 (서브)트리에 있는 노드 수
-	 * 2. 처리내용 : 
+	 * 2. 처리내용 : 루트 + 왼쪽 서브노드 사이즈 + 오른쪽 서브노드 사이즈 
 	 * </pre>
 	 * @Method Name : size
 	 * @param node
 	 * @return
 	 */
 	public int size(Node<Key> node) {
-		if(node == null) {
+		if(node == null) {					// 노드가 null 인 경우 0을 반환하고  
 			return 0;
 		} else {
+			// 루트 + 왼쪽 서브노드 사이즈 + 오른쪽 서브노드 사이즈 
 			return (1 + (size(node.getLeft())) + size(node.getRight()));
 		}
 	}
@@ -157,16 +159,17 @@ public class BinaryTree<Key extends Comparable<Key>> {
 	 * @return
 	 */
 	public int height(Node<Key> node) {
-		if(node == null) {
+		if(node == null) {					// 노드가 0인 경우 0을 반환하고 
 			return 0;
 		} else {
+			// 루트 + 왼쪽 혹은 오른쪽의 최대 값 
 			return (1 + Math.max(height(node.getLeft()), height(node.getRight())));
 		}
 	}
 	
 	/**
 	 * <pre>
-	 * 1. 개요 : 두 노드가 같은지 판단 
+	 * 1. 개요 : 두 개의 이진트리가 동일한지 판단 
 	 * 2. 처리내용 : 
 	 * </pre>
 	 * @Method Name : isEquals
