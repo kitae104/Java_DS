@@ -1,8 +1,8 @@
 package ds.tree.unionfind;
 
 public class Node {
-	int parent;
-	int rank;
+	int parent;		// 부모 노드의 레퍼런스 저장  
+	int rank;		// 랭크 - 초기에는 0으로 설정 
 	
 	// 생성자
 	public Node(int parent, int rank) {

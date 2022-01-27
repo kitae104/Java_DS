@@ -3,14 +3,14 @@ package ds.tree.unionfind;
 public class UnionFindTest {
 
 	public static void main(String[] args) {
-		int N = 10;
-		Node[] a = new Node[N];
+		int NUM = 10;
+		Node[] nodeArr = new Node[NUM];
 
-		for (int i = 0; i < N; i++) { // 10개 Node 객체 생성
-			a[i] = new Node(i, 0);
+		for (int i = 0; i < NUM; i++) { // 10개 Node 객체 생성
+			nodeArr[i] = new Node(i, 0);
 		}
 
-		UnionFind uf = new UnionFind(a); // UnionFind 객체 생성
+		UnionFind uf = new UnionFind(nodeArr); // UnionFind 객체 생성
 
 		uf.union(2, 1);
 		uf.union(2, 6);
@@ -22,14 +22,14 @@ public class UnionFindTest {
 		uf.union(0, 4);
 		
 		System.out.print("8회의 union 연산 수행 후\n(i:parent,rank):");
-		for(int i = 0; i < N; i++) {
-			System.out.print("("+i+":"+uf.a[i].getParent()+","+uf.a[i].getRank()+") ");
+		for(int i = 0; i < NUM; i++) {
+			System.out.print("("+i+":"+uf.getArr()[i].getParent()+","+uf.getArr()[i].getRank()+") ");
 		}
 		
 		uf.union(9, 1);
 		System.out.print("\n\nunion(9,1) 수행 후\n(i:parent,rank):");
-		for(int i = 0; i < N; i++) {
-			System.out.print("("+i+":"+uf.a[i].getParent()+","+uf.a[i].getRank()+") ");
+		for(int i = 0; i < NUM; i++) {
+			System.out.print("("+i+":"+uf.getArr()[i].getParent()+","+uf.getArr()[i].getRank()+") ");
 		}
 		System.out.println();		
 	}
